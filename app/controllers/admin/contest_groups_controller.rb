@@ -6,6 +6,10 @@ class Admin::ContestGroupsController < ApplicationController
   end
 
   def show
+    authorize :contest_groups, :show?
+
+    @contest_group = ContestGroup.find(params[:id])
+    @contests = contest_group.contests.paginate(:page => params[:page], :per_page => 20)
   end
 
   def new

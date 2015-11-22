@@ -10,7 +10,7 @@
     </tr>
   <% @contest_groups.each do |contest_group| %>
     <tr>
-      <td><%= contest_group.name %></td>
+      <td><%= link_to contest_group.name, admin_contest_group_path(contest_group) %></td>
       <td>
         <%= link_to "Промяна", edit_admin_contest_group_path(contest_group) %>
         <%= link_to "Изтриване", admin_contest_group_path(contest_group), :data => { :confirm => "Сигурни ли сте, че желаете да изтриете тази група?" }, :method => :delete %>
