@@ -14,10 +14,17 @@
   <% last_contest = contest_group.contests.last %>
     <tr>
       <td><%= link_to contest_group.name, admin_contest_group_path(contest_group) %></td>
-      <td><%= last_contest.name %></td>
-      <td><%= last_contest.start_time.to_s :long %></td>
-      <td><%= last_contest.end_time.to_s :long %></td>
-      <td><%= duration_in_words last_contest.duration.minutes %></td>
+      <% if last_contest %>
+        <td><%= last_contest.name %></td>
+        <td><%= last_contest.start_time.to_s :long %></td>
+        <td><%= last_contest.end_time.to_s :long %></td>
+        <td><%= duration_in_words last_contest.duration.minutes %></td>
+      <% else %>
+        <td><%= "-" %></td>
+        <td><%= "-" %></td>
+        <td><%= "-" %></td>
+        <td><%= "-" %></td>
+      <% end %>
     </tr>
   <% end %>
   </table>
