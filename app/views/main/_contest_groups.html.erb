@@ -1,8 +1,7 @@
-<h1>Състезания по групи</h1>
+<h2>Cъстезания по групи</h2>
 <br />
-
-<% if !@contest_groups.blank? %>
-  <p><%= will_paginate @contest_groups %></p>
+<% unless @contest_groups.blank? %>
+  <%= will_paginate @contest_groups, :param_name => :past_contests_page %>
   <table>
     <tr>
       <th>Име на групата</th>
@@ -10,7 +9,6 @@
       <th>Начало</th>
       <th>Край</th>
       <th>Продължителност</th>
-      <th>Действия</th>
     </tr>
   <% @contest_groups.each do |contest_group| %>
   <% last_contest = contest_group.contests.last %>
@@ -20,10 +18,6 @@
       <td><%= last_contest.start_time.to_s :long %></td>
       <td><%= last_contest.end_time.to_s :long %></td>
       <td><%= duration_in_words last_contest.duration.minutes %></td>
-      <td>
-        <%= link_to "Промяна", edit_admin_contest_group_path(contest_group) %>
-        <%= link_to "Изтриване", admin_contest_group_path(contest_group), :data => { :confirm => "Сигурни ли сте, че желаете да изтриете тази група?" }, :method => :delete %>
-      </td>
     </tr>
   <% end %>
   </table>
@@ -31,8 +25,3 @@
 <% else %>
   Няма създадени групи.
 <% end %>
-<br />
-<p>
-  <%= link_to "Новa група", new_admin_contest_group_path %> |
-  <%= link_to "Начална страница", root_path %>
-</p>
