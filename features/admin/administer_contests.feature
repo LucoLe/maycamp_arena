@@ -18,6 +18,7 @@ Feature: Administer contests
     And I press "Влез"
 
   Scenario: Create new contest
+    Given there is a contest group
     Given I am on the contest list in the admin panel
     And I follow "Ново състезание"
     And I fill in the following:
@@ -32,6 +33,7 @@ Feature: Administer contests
     And I should see "2 часа"
 
   Scenario: Delete a contest
+    Given there is a contest group
     Given I am on the contest list in the admin panel
     And I follow "Ново състезание"
     And I fill in the following:
@@ -47,6 +49,7 @@ Feature: Administer contests
     And I should not see "2 часа"
 
   Scenario: Edit a contest
+    Given there is a contest group
     Given I am on the contest list in the admin panel
     And I follow "Ново състезание"
     And I fill in the following:
@@ -66,6 +69,7 @@ Feature: Administer contests
     And I should see "Състезанието е обновено успешно."
 
   Scenario: Edit a contest and go to the index page
+    Given there is a contest group
     Given I am on the contest list in the admin panel
     And I follow "Ново състезание"
     And I fill in the following:

@@ -16,13 +16,12 @@ FactoryGirl.define do
     c.start_time { 1.hour.ago }
     c.end_time { 1.hour.from_now }
     c.name "Test contest"
-    c.contest_group_id 1
 
     association :contest_group
   end
 
-  factory :contest_group do |cg|
-    cg.name "Test"
+  factory :contest_group do
+    name "Test"
   end
 
   factory :run do |r|

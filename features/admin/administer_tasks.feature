@@ -5,6 +5,7 @@
   I want to be able to administer the tasks
 
   Background:
+    Given there is a contest group
     Given there is an admin user with attributes:
       | login                 | valo                      |
       | name                  | Valentin Mihov            |
@@ -20,6 +21,7 @@
     And I follow "Ново състезание"
     And I fill in the following:
       | Име: | Fall contest |
+      | Група: | Други |
       | Продължителност: | 120 |
     And I select "October 16, 2014 16:21:39" as the "Начало:" datetime
     And I select "October 18, 2014 16:21:39" as the "Край:" datetime

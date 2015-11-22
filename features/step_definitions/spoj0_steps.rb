@@ -1,5 +1,5 @@
 Given /^there is a running contest named "([^\"]*)"$/ do |contest_name|
-  create(:contest, :name => contest_name, :start_time => 1.day.ago, :end_time => 1.day.from_now, :contest_group_id => 1)
+  create(:contest, :name => contest_name, :start_time => 1.day.ago, :end_time => 1.day.from_now)
 end
 
 Given /^the contest "([^\"]*)" has a task named "([^\"]*)"$/ do |contest_name, task_name|
@@ -71,4 +71,8 @@ Given(/^I am logged in as contestant user with attributes:$/) do |user_attrs|
             | login                 | #{user.login}             |
             | password              | secret                    |
           And I press "Влез"}
+end
+
+Given(/^there is a contest group$/) do
+  ContestGroup.create( :name => "Други")
 end
