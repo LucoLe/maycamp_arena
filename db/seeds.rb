@@ -15,5 +15,4 @@ u = User.create(
   :city => "Sofia"
 )
 
-group_others = ContestGroup.create(
-  :name => "Други")
+# group_others = ContestGroup.create(:name => "Други")
