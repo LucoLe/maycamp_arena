@@ -40,7 +40,8 @@ describe Admin::ContestsController do
     end
 
     describe "#create" do
-      let(:contest_params) { attributes_for(:contest) }
+      let(:contest_group) { create(:contest_group) }
+      let(:contest_params) { attributes_for(:contest).merge({contest_group_id: contest_group.id}) }
       before { post :create, contest: contest_params }
 
       it { is_expected.to redirect_to(admin_contests_path) }

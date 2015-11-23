@@ -21,7 +21,7 @@ FactoryGirl.define do
   end
 
   factory :contest_group do
-    name "Test"
+    sequence(:name) {|n| "Contest Group #{n}"}
   end
 
   factory :run do |r|
