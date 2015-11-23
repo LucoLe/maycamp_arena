@@ -1,4 +1,4 @@
-class Admin::ContestGroupsController < ApplicationController
+class Admin::ContestGroupsController < Admin::BaseController
   def index
     authorize :contest_groups, :index?
 
