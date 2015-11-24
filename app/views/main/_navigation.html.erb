@@ -29,6 +29,9 @@
     <% if policy(:contests).index? %>
       <li><%= link_to "Състезания", admin_contests_path %></li>
     <% end %>
+    <% if policy(:contest_groups).index? %>
+      <li><%= link_to "Състезания по групи", admin_contest_groups_path %></li>
+    <% end %>
     <% if policy(:users).index? %>
       <li><%= link_to "Потребители", admin_users_path %></li>
     <% end %>

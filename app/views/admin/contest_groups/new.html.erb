@@ -1,0 +1,12 @@
+<h1>Създаване на нова група състезания</h1>
+<br />
+<%= form_for [:admin, @contest_group] do |f| -%>
+  <p>
+    <%= f.error_messages %>
+  </p>
+  <%= render :partial => 'contest_group_fields', :locals => { :f => f } %>
+  <br />
+  <p>
+    <%= f.submit "Създаване" %><%= link_to "Отказ", :action => "index" %>
+  </p>
+<% end -%>

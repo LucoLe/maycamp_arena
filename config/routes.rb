@@ -48,6 +48,8 @@ MaycampArena::Application.routes.draw do
       end
     end
 
+    resources :contest_groups
+
     resources :contests do
       member do
         get :download_sources

@@ -1,0 +1,34 @@
+<h2>Cъстезания по групи</h2>
+<br />
+<% unless @contest_groups.blank? %>
+  <%= will_paginate @contest_groups, :param_name => :past_contests_page %>
+  <table>
+    <tr>
+      <th>Име на групата</th>
+      <th>Последно добавено състезание</th>
+      <th>Начало</th>
+      <th>Край</th>
+      <th>Продължителност</th>
+    </tr>
+  <% @contest_groups.each do |contest_group| %>
+  <% last_contest = contest_group.contests.last %>
+    <tr>
+      <td><%= link_to contest_group.name, admin_contest_group_path(contest_group) %></td>
+      <% if last_contest %>
+        <td><%= last_contest.name %></td>
+        <td><%= last_contest.start_time.to_s :long %></td>
+        <td><%= last_contest.end_time.to_s :long %></td>
+        <td><%= duration_in_words last_contest.duration.minutes %></td>
+      <% else %>
+        <td><%= "-" %></td>
+        <td><%= "-" %></td>
+        <td><%= "-" %></td>
+        <td><%= "-" %></td>
+      <% end %>
+    </tr>
+  <% end %>
+  </table>
+  <p><%= will_paginate @contest_groups %></p>
+<% else %>
+  Няма създадени групи.
+<% end %>

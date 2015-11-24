@@ -72,3 +72,7 @@ Given(/^I am logged in as contestant user with attributes:$/) do |user_attrs|
             | password              | secret                    |
           And I press "Влез"}
 end
+
+Given(/^there is a contest group$/) do
+  ContestGroup.create( :name => "Други")
+end

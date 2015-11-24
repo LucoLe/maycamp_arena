@@ -6,7 +6,8 @@ class MainController < ApplicationController
   before_filter :check_user_profile
 
   def index
-    @past_contests = Contest.finished.paginate(:page => params.fetch(:past_contest_page, 1), :per_page => 20)
+    @contest_groups = ContestGroup.paginate(:page => params[:page], :per_page => 20)
+    @past_contests = Contest.finished.paginate(:page => params.fetch(:past_contests_page, 2), :per_page => 20)
     @contests = WillPaginate::Collection.create(params[:contest_page] || 1, 20) do |pager|
       contests = Contest.current.select {|contest| contest.visible or current_user.andand.admin?}
 

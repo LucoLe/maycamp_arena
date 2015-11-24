@@ -62,11 +62,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # automatically installed. For example, configure the host as a
   # policy server and optionally a policy file to run:
 
-  config.vm.provision "ansible" do |ansible|
-    ansible.playbook = "provisioning/playbook.yml"
-    ansible.sudo = true
-    ansible.limit = "all"
-  end
+  # config.vm.provision "ansible" do |ansible|
+  #   ansible.playbook = "provisioning/playbook.yml"
+  #   ansible.sudo = true
+  #   ansible.limit = "all"
+  # end
   #
   # config.vm.provision "cfengine" do |cf|
   #   cf.am_policy_hub = true
